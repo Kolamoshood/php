@@ -1,25 +1,37 @@
 <?php 
 include('config.php');
+
 session_start();
+
 $error = "";
 
-if(isset($_POST['login'])) {
-    $email = mysqli_real_escape_string($connection, $_POST['email']);
-    $password = mysqli_real_escape_string($connection, $_POST['password']);
-    $password = password_hash($password, PASSWORD_DEFAULT);
+if(isset($_POST["login"])) {
+echo 'good';
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+    // $password = password_hash($password, PASSWORD_DEFAULT);
+	
+	require_once 'functions.php';
 
-    $query = "SELECT * FROM user WHERE email = '$email' AND password = '$password'";
+	if (empty($email) !== false || empty($password) !== false) {
+		header('location:login.php?error=emptyinput');
+	}
+
+    $query = "SELECT * FROM user WHERE email = '$email'";
     $result = mysqli_query($connection, $query);
+    $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
 
     $count = mysqli_num_rows($result);
     if($count == 1) {
         $_SESSION['email'] = $email;
 
-        header("location: user.php");
+        header("location: session.php");
     } else {
         $error = "Incorrect Login Details,";
-        header('location:login.php');
-
+        header('location:login.php?loginfailed');
+        
+        echo "<script>alert('i got here')</script>";
+   
         exit();
     }
 }

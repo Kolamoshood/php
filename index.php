@@ -1,18 +1,41 @@
 <?php 
 include('config.php');
 
+session_start();
+
+$error = "";
 
 if(isset($_POST['register'])) {
     $username = mysqli_real_escape_string($connection, $_POST['username']);
     $email = mysqli_real_escape_string($connection, $_POST['email']);
     $password = mysqli_real_escape_string($connection, $_POST['password']);
     $password = password_hash($password, PASSWORD_DEFAULT);
+	require_once 'config.php';
+	require_once 'functions.php';
 
-    $query = "INSERT INTO user (username, email, password) VALUES ('$username', ' $email', '$password')";
-    $result = mysqli_query($connection, $query);
-    header('location:login.php');
-}
+	if (emptySigninInput($username, $email, $password) !== false) {
+		header('location: index.php?error=emptyinput');
+		exit();
+	}
+	if (uidexists($connection, $email)){
+		header('location: index.php?error=userexists');
+	} else {
+		create_user($connection, $username, $email, $password);
+	}
 
+    // $query = "SELECT * FROM user WHERE email = '$email'";
+    // $result = mysqli_query($connection, $query);
+    // $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
+
+    // $count = mysqli_num_rows($result);
+    // if($count == 1) {
+    //     $error = "Username or Email already used. Try another Details";
+    // }else {
+    //     $reg_query = "INSERT INTO user (username, email, password) VALUES ('$username', ' $email', '$password')";
+    //     $result = mysqli_query($connection, $reg_query);
+    //     header('location:login.php?regsuccess');
+    // }
+} 
 
 ?>
 <!DOCTYPE html>
@@ -23,29 +46,17 @@ if(isset($_POST['register'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-		
 		<link rel="stylesheet" href="assets/css/owl.theme.default.min.css">
-		
 		<link rel="stylesheet" href="assets/css/owl.carousel.min.css">
-		
 		<link rel="stylesheet" href="assets/css/remixicon.css">
-		
 		<link rel="stylesheet" href="assets/css/flaticon.css">
-		
 		<link rel="stylesheet" href="assets/css/meanmenu.min.css">
-		
 		<link rel="stylesheet" href="assets/css/animate.min.css">
-		
 		<link rel="stylesheet" href="assets/css/odometer.min.css">
-		
 		<link rel="stylesheet" href="assets/css/magnific-popup.min.css">
-		
 		<link rel="stylesheet" href="assets/css/date-picker.min.css">
-		
 		<link rel="stylesheet" href="assets/css/style.css">
-		
 		<link rel="stylesheet" href="assets/css/responsive.css">
-		
 		<link rel="icon" type="image/png" href="assets/images/1.png">
 </head>
 <body>
@@ -91,28 +102,16 @@ if(isset($_POST['register'])) {
     <script data-cfasync="false" src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="assets/js/jquery.min.js"></script> 
         
         <script src="assets/js/bootstrap.bundle.min.js"></script>
-        
 		<script src="assets/js/meanmenu.min.js"></script>
-		
 		<script src="assets/js/owl.carousel.min.js"></script>
-		
         <script src="assets/js/wow.min.js"></script>
-		
         <script src="assets/js/appear.min.js"></script>
-		
         <script src="assets/js/odometer.min.js"></script>
-		
         <script src="assets/js/jarallax.min.js"></script>
-		
         <script src="assets/js/bootstrap-datepicker.min.js"></script>
-		
         <script src="assets/js/magnific-popup.min.js"></script>
-		
 		<script src="assets/js/form-validator.min.js"></script>
-		
 		<script src="assets/js/contact-form-script.js"></script>
-		
 		<script src="assets/js/ajaxchimp.min.js"></script>
-        
 		<script src="assets/js/custom.js"></script>
 </body>
