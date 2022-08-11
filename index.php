@@ -4,37 +4,36 @@ include('config.php');
 session_start();
 
 $error = "";
+$message = "";
 
-if(isset($_POST['register'])) {
+if($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = mysqli_real_escape_string($connection, $_POST['username']);
     $email = mysqli_real_escape_string($connection, $_POST['email']);
     $password = mysqli_real_escape_string($connection, $_POST['password']);
-    $password = password_hash($password, PASSWORD_DEFAULT);
-	require_once 'config.php';
-	require_once 'functions.php';
+    // $password = password_hash($password, PASSWORD_DEFAULT);
+	
+	$query = "SELECT * FROM user WHERE email = '$email'";
+    $result = mysqli_query($connection, $query);
+    $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
+    
 
-	if (emptySigninInput($username, $email, $password) !== false) {
-		header('location: index.php?error=emptyinput');
-		exit();
-	}
-	if (uidexists($connection, $email)){
-		header('location: index.php?error=userexists');
-	} else {
-		create_user($connection, $username, $email, $password);
-	}
+    $count = mysqli_num_rows($result);
+	
 
-    // $query = "SELECT * FROM user WHERE email = '$email'";
-    // $result = mysqli_query($connection, $query);
-    // $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
+    if($count == 1) {
+        $error = "Username or Email already used. Try another Details";
+    } else {
+        $reg_query = "INSERT INTO user (username, email, password) VALUES ('$username', '$email', md5('$password'))";
+		
+         if(mysqli_query($connection, $reg_query)){
+             $message = "Registration Successfull, Proceed to login";
+         }else{
+             $error = "Registration Fail";
+         }
+        
+    }
+	
 
-    // $count = mysqli_num_rows($result);
-    // if($count == 1) {
-    //     $error = "Username or Email already used. Try another Details";
-    // }else {
-    //     $reg_query = "INSERT INTO user (username, email, password) VALUES ('$username', ' $email', '$password')";
-    //     $result = mysqli_query($connection, $reg_query);
-    //     header('location:login.php?regsuccess');
-    // }
 } 
 
 ?>
@@ -64,7 +63,7 @@ if(isset($_POST['register'])) {
 <section class="user-area ptb-100">
 			<div class="container">
 			<div class="user-form-content max-width-600">
-				<form class="user-form" action="<?php echo $_SERVER['PHP_SELF'] ?>" method="POST">
+				<form class="user-form" action="" method="POST">
 					<h3>Create an account</h3>
 
 					<div class="row">
@@ -90,7 +89,7 @@ if(isset($_POST['register'])) {
 						</div>
 
 						<div class="col-12">
-							<button class="default-btn register" type="submit" name="register">
+							<button class="default-btn register" type="submit">
 								Register now
 							</button>
 						</div>

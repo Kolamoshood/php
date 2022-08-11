@@ -5,35 +5,24 @@ session_start();
 
 $error = "";
 
-if(isset($_POST["login"])) {
-echo 'good';
-    $email = $_POST['email'];
-    $password = $_POST['password'];
+if($_SERVER["REQUEST_METHOD"] == "POST") {
+    $email = mysqli_real_escape_string($connection, $_POST['email']);
+    $password =mysqli_real_escape_string($connection, $_POST['password']);
     // $password = password_hash($password, PASSWORD_DEFAULT);
 	
-	require_once 'functions.php';
-
-	if (empty($email) !== false || empty($password) !== false) {
-		header('location:login.php?error=emptyinput');
-	}
-
-    $query = "SELECT * FROM user WHERE email = '$email'";
+	$query = "SELECT id FROM user WHERE email = '$email' AND password = md5('$password')";
     $result = mysqli_query($connection, $query);
     $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
 
-    $count = mysqli_num_rows($result);
-    if($count == 1) {
-        $_SESSION['email'] = $email;
+	$count = mysqli_num_rows($result);
 
-        header("location: session.php");
-    } else {
-        $error = "Incorrect Login Details,";
-        header('location:login.php?loginfailed');
-        
-        echo "<script>alert('i got here')</script>";
-   
-        exit();
-    }
+	if ($count == 1){
+		$_SESSION['email'] = $email;
+		header('location: user.php');
+	} else {
+		$error = "Incorrect login details";
+	}
+
 }
 
 ?>
@@ -68,7 +57,7 @@ echo 'good';
 <section class="user-area ptb-100">
 			<div class="container">
 			<div class="user-form-content max-width-600">
-				<form class="user-form" action="<?php echo $_SERVER['PHP_SELF'] ?>" method="POST">
+				<form class="user-form" action="" method="POST">
 					<h3>Log In</h3>
 
 					<div class="row">
@@ -87,7 +76,7 @@ echo 'good';
 						</div>
 
 						<div class="col-12">
-							<button class="default-btn register" type="submit" name="login">
+							<button class="default-btn register" type="submit">
 								Login
 							</button>
 						</div>
