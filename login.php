@@ -53,6 +53,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 		<link rel="icon" type="image/png" href="assets/images/1.png">
 </head>
 <body>
+		
+<div class="preloader">
+	<div class="lds-ripple">
+		<div class="pl-flip-1 pl-flip-2"></div>
+	</div>
+</div>
 
 <section class="user-area ptb-100">
 			<div class="container">
