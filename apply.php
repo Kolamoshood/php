@@ -13,7 +13,7 @@ include 'session.php';
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User</title>
+    <title>Application</title>
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
 		<link rel="stylesheet" href="assets/css/owl.theme.default.min.css">
 		<link rel="stylesheet" href="assets/css/owl.carousel.min.css">
@@ -128,6 +128,169 @@ include 'session.php';
 			<!-- End Navbar Area -->
 		</header>
 
+        <div class="page-title-area bg-27">
+			<div class="container">
+				<div class="page-title-content">
+					<h2>Application</h2>
+
+					<ul>
+						<li>
+							<a href="index.html">
+								Home 
+							</a>
+						</li>
+
+						<li class="active">Application</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+        <section class="candidates-resume-area ptb-100">
+			<div class="container">
+				<div class="candidates-resume-content">
+					<form class="resume-info">
+						<h3>Student basic information</h3>
+
+						<div class="row">
+							<div class="col-lg-6 col-md-6">
+								<div class="form-group">
+									<label>First Name</label>
+									<input class="form-control" type="text" name="First-Name">
+								</div>
+							</div>
+
+							<div class="col-lg-6 col-md-6">
+								<div class="form-group">
+                                    <label>Last Name</label>
+									<input class="form-control" type="text" name="Last-Name">
+								</div>
+							</div>
+
+                            <div class="col-lg-6 col-md-6">
+								<div class="form-group">
+                                <label>Middle Name</label>
+									<input class="form-control" type="text" name="Middle-Name">
+								</div>
+							</div>
+
+							<!-- <div class="col-lg-6 col-md-6">
+								<div class="form-group">
+									<label for="img">Student photo</label>
+									<input type="file" class="form-control" id="img-1" name="img" accept="image/*">
+								</div>
+							</div>-->
+
+						</div>
+                        <hr>
+
+						<h3>Student personal information</h3>
+
+						<div class="row">
+							<div class="col-lg-6 col-md-6">
+								<div class="form-group">
+									<label>Phone Number</label>
+									<input type="tel" class="form-control" name="contact">
+								</div>
+							</div>
+
+							<div class="col-lg-6 col-md-6">
+								<div class="form-group">
+									<label>E-mail</label>
+									<input type="email" class="form-control" name="email">
+								</div>
+							</div>
+							<div class="col-lg-6 col-md-6">
+								<div class="form-group">
+									<label>Date Of Birth</label>
+									<div class="input-group date" id="datetimepicker">
+										<input type="text" class="form-control">
+										<span class="input-group-addon"></span>
+										<i class="bx bx-calendar"></i>
+									</div>	
+								</div>
+							</div>
+							<div class="col-lg-6 col-md-6">
+								<div class="form-group">
+									<label for="img">Upload passport</label>
+									<input type="file" class="form-control" id="img" name="img" accept="image/*">
+								</div>
+                                <p>Photo Must be in Passport (PP) Size. Max Upload Size 256KB</p> 
+							</div>
+						</div>
+                        <hr>
+						<h3>Student academic information</h3>
+
+						<div class="row">
+							<div class="col-lg-6 col-md-6">
+								<div class="form-group">
+									<label>Matric Number</label>
+									<input class="form-control" type="text" name="School">
+								</div>
+							</div>
+
+							<div class="col-lg-6 col-md-6">
+								<div class="form-group">
+									<div class="form-group">
+                                    <label>CGPA</label>
+									<input class="form-control" type="text" name="School">	
+									</div>
+								</div>
+							</div>
+
+							<div class="col-lg-6 col-md-6">
+								<div class="form-group">
+									<label>Faculty</label>
+									<select class="form-control">
+										<option value="1">Law</option>
+										<option value="2">Arts</option>
+										<option value="3">Engineering</option>
+                                        <option value="4"> Sciences</option>
+										<option value="5">Social Sciences</option>
+										<option value="6">Medical Sciences</option>
+                                        <option value="7">Management Sciences</option>
+                                        <option value="8">Information Sciences</option>
+									</select>
+								</div>
+							</div>
+
+							<div class="col-lg-6 col-md-6">
+								<div class="form-group">
+									<label>Department</label>
+									<select class="form-control">
+										<option value="1">Law</option>
+										<option value="2">Arts</option>
+										<option value="3">Engineering</option>
+                                        <option value="4"> Sciences</option>
+										<option value="5">Social Sciences</option>
+										<option value="6">Medical Sciences</option>
+                                        <option value="7">Management Sciences</option>
+                                        <option value="8">Information Sciences</option>
+									</select>
+								</div>
+							</div>
+
+							<div class="col-lg-12 col-md-12">
+								<div class="form-group checkboxs">
+									<input type="checkbox" id="chb2">
+									<p>
+										By submitting this form, you agree to the <a href="terms-conditions.html">Terms &amp; Conditions</a> And <a href="privacy-policy.html">Privacy Policy</a> notice.
+									</p>
+								</div>
+							</div>
+
+							<div class="col-lg-12">
+								<a href="#" class="default-btn">
+									Submit application
+									<i class="ri-arrow-right-line"></i>
+								</a>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</section>
+
 <script data-cfasync="false" src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="assets/js/jquery.min.js"></script> 
         
         <script src="assets/js/bootstrap.bundle.min.js"></script>
@@ -144,7 +307,3 @@ include 'session.php';
 		<script src="assets/js/ajaxchimp.min.js"></script>
 		<script src="assets/js/custom.js"></script>
 </body>
-
-
-
-
