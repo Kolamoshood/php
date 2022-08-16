@@ -24,7 +24,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         $error = "Username or Email already used. Try another Details";
     } else {
         $reg_query = "INSERT INTO user (username, email, password) VALUES ('$username', '$email', md5('$password'))";
-		
+
          if(mysqli_query($connection, $reg_query)){
              $message = "Registration Successfull, Proceed to login";
          }else{

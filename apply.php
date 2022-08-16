@@ -1,7 +1,53 @@
 <?php 
-include 'session.php';
 
+include ('config.php');
 
+include ('session.php');
+
+$username = $row['username'];
+
+$error = "";
+$message = "";
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+	$firstname = mysqli_real_escape_string($connection, $_POST['firstname']);
+	$lastname = mysqli_real_escape_string($connection, $_POST['lastname']);
+	$middlename = mysqli_real_escape_string($connection, $_POST['middlename']);
+	$phone_no = mysqli_real_escape_string($connection, $_POST['phone_no']);
+	$email = mysqli_real_escape_string($connection, $_POST['email']);
+	$dob = mysqli_real_escape_string($connection, $_POST['dob']);
+	$image = pathinfo($_FILES["image"]["name"], PATHINFO_EXTENSION);
+	$matric_no = mysqli_real_escape_string($connection, $_POST['matric_no']);
+	$cgpa = mysqli_real_escape_string($connection, $_POST['cgpa']);
+	$faculty = mysqli_real_escape_string($connection, $_POST['faculty']);
+	$department = mysqli_real_escape_string($connection, $_POST['department']);
+
+	$query = "SELECT * FROM student WHERE email = '$email'";
+    $result = mysqli_query($connection, $query);
+    $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
+    
+
+    $count = mysqli_num_rows($result);
+
+	echo $email;
+	
+
+    if($count == 1) {
+        $error = "Your student record already exists in the database!";
+    } else {
+		$std_query = "INSERT INTO student (firstname, lastname, middlename, phone_no, email, dob, image, matric_no, cgpa, faculty, department) VALUES ('$firstname', '$lastname', '$middlename', '$phone_no', '$email', '$dob', '$image', '$matric_no', '$cgpa', '$faculty', '$department')";
+		if(mysqli_query($connection, $std_query)){
+			header("location: apply.php?success=succeed");
+
+		} else {
+			header("location: apply.php?error=failed");
+		}
+		
+	}
+	
+	
+}
 
 ?>
 
@@ -54,11 +100,9 @@ include 'session.php';
                         <div class="col-lg-6 col-sm-6">
 							<div class="header-right-content">
                                 <div class="languages-switcher">
-                                    <li>
                                         <a href="logout.php" class="default-btn">
                                             Log Out
                                         </a>
-                                    </li>
                                 </div>
                                 <div class="my-account">
                                     <a href="profile.php">
@@ -113,10 +157,10 @@ include 'session.php';
                                 </ul>
                                 <div class="others-options">
                                     <ul>
-                                        <li>
-                                            <a href="apply.php" class="default-btn">
-                                                Application form
-                                            </a>
+										<li>
+                                            <div class="default-btn">
+                                                <?php echo "welcome ". $username . "!"; ?>
+                                            </div>
                                         </li>
                                     </ul>
                                 </div>         
@@ -135,7 +179,7 @@ include 'session.php';
 
 					<ul>
 						<li>
-							<a href="index.html">
+							<a href="user.php">
 								Home 
 							</a>
 						</li>
@@ -149,37 +193,30 @@ include 'session.php';
         <section class="candidates-resume-area ptb-100">
 			<div class="container">
 				<div class="candidates-resume-content">
-					<form class="resume-info">
+					<form class="resume-info" action="" method="POST" enctype="multipart/form-data">
 						<h3>Student basic information</h3>
 
 						<div class="row">
 							<div class="col-lg-6 col-md-6">
 								<div class="form-group">
 									<label>First Name</label>
-									<input class="form-control" type="text" name="First-Name">
+									<input class="form-control" type="text" name="firstname"  >
 								</div>
 							</div>
 
 							<div class="col-lg-6 col-md-6">
 								<div class="form-group">
                                     <label>Last Name</label>
-									<input class="form-control" type="text" name="Last-Name">
+									<input class="form-control" type="text" name="lastname"  >
 								</div>
 							</div>
 
                             <div class="col-lg-6 col-md-6">
 								<div class="form-group">
                                 <label>Middle Name</label>
-									<input class="form-control" type="text" name="Middle-Name">
+									<input class="form-control" type="text" name="middlename"  >
 								</div>
 							</div>
-
-							<!-- <div class="col-lg-6 col-md-6">
-								<div class="form-group">
-									<label for="img">Student photo</label>
-									<input type="file" class="form-control" id="img-1" name="img" accept="image/*">
-								</div>
-							</div>-->
 
 						</div>
                         <hr>
@@ -190,21 +227,21 @@ include 'session.php';
 							<div class="col-lg-6 col-md-6">
 								<div class="form-group">
 									<label>Phone Number</label>
-									<input type="tel" class="form-control" name="contact">
+									<input type="tel" class="form-control" name="phone_no"  >
 								</div>
 							</div>
 
 							<div class="col-lg-6 col-md-6">
 								<div class="form-group">
 									<label>E-mail</label>
-									<input type="email" class="form-control" name="email">
+									<input type="email" class="form-control" name="email"  >
 								</div>
 							</div>
 							<div class="col-lg-6 col-md-6">
 								<div class="form-group">
 									<label>Date Of Birth</label>
 									<div class="input-group date" id="datetimepicker">
-										<input type="text" class="form-control">
+										<input type="text" class="form-control" name="dob"  >
 										<span class="input-group-addon"></span>
 										<i class="bx bx-calendar"></i>
 									</div>	
@@ -213,7 +250,7 @@ include 'session.php';
 							<div class="col-lg-6 col-md-6">
 								<div class="form-group">
 									<label for="img">Upload passport</label>
-									<input type="file" class="form-control" id="img" name="img" accept="image/*">
+									<input type="file" class="form-control" id="image" name="image" accept="image/*"  >
 								</div>
                                 <p>Photo Must be in Passport (PP) Size. Max Upload Size 256KB</p> 
 							</div>
@@ -225,7 +262,7 @@ include 'session.php';
 							<div class="col-lg-6 col-md-6">
 								<div class="form-group">
 									<label>Matric Number</label>
-									<input class="form-control" type="text" name="School">
+									<input class="form-control" type="text" name="matric_no"  >
 								</div>
 							</div>
 
@@ -233,7 +270,7 @@ include 'session.php';
 								<div class="form-group">
 									<div class="form-group">
                                     <label>CGPA</label>
-									<input class="form-control" type="text" name="School">	
+									<input class="form-control" type="number" name="cgpa"  >	
 									</div>
 								</div>
 							</div>
@@ -241,32 +278,14 @@ include 'session.php';
 							<div class="col-lg-6 col-md-6">
 								<div class="form-group">
 									<label>Faculty</label>
-									<select class="form-control">
-										<option value="1">Law</option>
-										<option value="2">Arts</option>
-										<option value="3">Engineering</option>
-                                        <option value="4"> Sciences</option>
-										<option value="5">Social Sciences</option>
-										<option value="6">Medical Sciences</option>
-                                        <option value="7">Management Sciences</option>
-                                        <option value="8">Information Sciences</option>
-									</select>
+									<input class="form-control" type="text" name="faculty"  >	
 								</div>
 							</div>
 
 							<div class="col-lg-6 col-md-6">
 								<div class="form-group">
 									<label>Department</label>
-									<select class="form-control">
-										<option value="1">Law</option>
-										<option value="2">Arts</option>
-										<option value="3">Engineering</option>
-                                        <option value="4"> Sciences</option>
-										<option value="5">Social Sciences</option>
-										<option value="6">Medical Sciences</option>
-                                        <option value="7">Management Sciences</option>
-                                        <option value="8">Information Sciences</option>
-									</select>
+									<input class="form-control" type="text" name="department"  >	
 								</div>
 							</div>
 
@@ -280,10 +299,10 @@ include 'session.php';
 							</div>
 
 							<div class="col-lg-12">
-								<a href="#" class="default-btn">
+								<button class="default-btn register" type="submit">
 									Submit application
 									<i class="ri-arrow-right-line"></i>
-								</a>
+								</button>	
 							</div>
 						</div>
 					</form>

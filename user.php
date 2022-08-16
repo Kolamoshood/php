@@ -1,5 +1,7 @@
 <?php 
-include 'session.php';
+include ('session.php');
+
+$username = $row['username'];
 
 
 
@@ -54,11 +56,9 @@ include 'session.php';
                         <div class="col-lg-6 col-sm-6">
 							<div class="header-right-content">
                                 <div class="languages-switcher">
-                                    <li>
                                         <a href="logout.php" class="default-btn">
                                             Log Out
                                         </a>
-                                    </li>
                                 </div>
                                 <div class="my-account">
                                     <a href="profile.php">
@@ -114,9 +114,9 @@ include 'session.php';
                                 <div class="others-options">
                                     <ul>
                                         <li>
-                                            <a href="apply.php" class="default-btn">
-                                                Application form
-                                            </a>
+                                            <div class="default-btn">
+                                                <?php echo "welcome ". $username . "!"; ?>
+                                            </div>
                                         </li>
                                     </ul>
                                 </div>         
