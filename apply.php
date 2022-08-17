@@ -192,6 +192,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         <section class="candidates-resume-area ptb-100">
 			<div class="container">
+				<div>
+					<?php 
+					$message = "Your application is succesful, keep checking your portal for more info!";
+					$error = "Application failed. Try again !";
+					if(isset($_GET["error"])) {
+						if ($_GET["error"] == "failed"){
+							echo   '<div class="alert alert-danger">';
+     						echo      '<strong>Alert! </strong>'. ' ' .$error;
+    						 echo   '</div>';
+						}
+					} else if (isset($_GET["success"])){
+						if ($_GET["success"] == "succeed") {
+							echo   '<div class="alert alert-success">';
+							echo      '<strong>Congratulations! </strong>'. ' ' .$message;
+							echo   '</div>';
+						}
+					}
+					?>
+				</div>
+
 				<div class="candidates-resume-content">
 					<form class="resume-info" action="" method="POST" enctype="multipart/form-data">
 						<h3>Student basic information</h3>
@@ -200,21 +220,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 							<div class="col-lg-6 col-md-6">
 								<div class="form-group">
 									<label>First Name</label>
-									<input class="form-control" type="text" name="firstname"  >
+									<input class="form-control" type="text" name="firstname" required >
 								</div>
 							</div>
 
 							<div class="col-lg-6 col-md-6">
 								<div class="form-group">
                                     <label>Last Name</label>
-									<input class="form-control" type="text" name="lastname"  >
+									<input class="form-control" type="text" name="lastname" required >
 								</div>
 							</div>
 
                             <div class="col-lg-6 col-md-6">
 								<div class="form-group">
                                 <label>Middle Name</label>
-									<input class="form-control" type="text" name="middlename"  >
+									<input class="form-control" type="text" name="middlename" required >
 								</div>
 							</div>
 
@@ -227,21 +247,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 							<div class="col-lg-6 col-md-6">
 								<div class="form-group">
 									<label>Phone Number</label>
-									<input type="tel" class="form-control" name="phone_no"  >
+									<input type="tel" class="form-control" name="phone_no" required >
 								</div>
 							</div>
 
 							<div class="col-lg-6 col-md-6">
 								<div class="form-group">
 									<label>E-mail</label>
-									<input type="email" class="form-control" name="email"  >
+									<input type="email" class="form-control" name="email" required >
 								</div>
 							</div>
 							<div class="col-lg-6 col-md-6">
 								<div class="form-group">
 									<label>Date Of Birth</label>
 									<div class="input-group date" id="datetimepicker">
-										<input type="text" class="form-control" name="dob"  >
+										<input type="text" class="form-control" name="dob" required >
 										<span class="input-group-addon"></span>
 										<i class="bx bx-calendar"></i>
 									</div>	
@@ -250,7 +270,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 							<div class="col-lg-6 col-md-6">
 								<div class="form-group">
 									<label for="img">Upload passport</label>
-									<input type="file" class="form-control" id="image" name="image" accept="image/*"  >
+									<input type="file" class="form-control" id="image" name="image" accept="image/*" required >
 								</div>
                                 <p>Photo Must be in Passport (PP) Size. Max Upload Size 256KB</p> 
 							</div>
@@ -262,7 +282,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 							<div class="col-lg-6 col-md-6">
 								<div class="form-group">
 									<label>Matric Number</label>
-									<input class="form-control" type="text" name="matric_no"  >
+									<input class="form-control" type="text" name="matric_no" required >
 								</div>
 							</div>
 
@@ -270,7 +290,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 								<div class="form-group">
 									<div class="form-group">
                                     <label>CGPA</label>
-									<input class="form-control" type="number" name="cgpa"  >	
+									<input class="form-control" type="number" name="cgpa" required >	
 									</div>
 								</div>
 							</div>
@@ -278,14 +298,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 							<div class="col-lg-6 col-md-6">
 								<div class="form-group">
 									<label>Faculty</label>
-									<input class="form-control" type="text" name="faculty"  >	
+									<input class="form-control" type="text" name="faculty" required >	
 								</div>
 							</div>
 
 							<div class="col-lg-6 col-md-6">
 								<div class="form-group">
 									<label>Department</label>
-									<input class="form-control" type="text" name="department"  >	
+									<input class="form-control" type="text" name="department" required >	
 								</div>
 							</div>
 
