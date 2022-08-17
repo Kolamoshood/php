@@ -1,150 +1,88 @@
-<?php 
-include ('session.php');
 
+<?php include('includes/header.php'); ?>
 
+<!-- Start Page Title Area -->
+<div class="page-title-area bg-9">
+			<div class="container">
+				<div class="page-title-content">
+					<h2>Admissions</h2>
 
-?>
+					<ul>
+						<li>
+							<a href="index.html">
+								Home 
+							</a>
+						</li>
 
+						<li class="active">Admissions</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<!-- End Page Title Area -->
 
+		<!-- Start Campus Experience Area -->
+		<section class="campus-experience-area-style pt-100">
+			<div class="container">
+				<div class="campus-experience-bg ptb-100">
+					<div class="campus-experience-slider owl-carousel owl-theme">
+						<div class="single-campus-experience">
+							<span>Admission information</span>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admission</title>
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-		<link rel="stylesheet" href="assets/css/owl.theme.default.min.css">
-		<link rel="stylesheet" href="assets/css/owl.carousel.min.css">
-		<link rel="stylesheet" href="assets/css/remixicon.css">
-		<link rel="stylesheet" href="assets/css/flaticon.css">
-		<link rel="stylesheet" href="assets/css/meanmenu.min.css">
-		<link rel="stylesheet" href="assets/css/animate.min.css">
-		<link rel="stylesheet" href="assets/css/odometer.min.css">
-		<link rel="stylesheet" href="assets/css/magnific-popup.min.css">
-		<link rel="stylesheet" href="assets/css/date-picker.min.css">
-		<link rel="stylesheet" href="assets/css/style.css">
-		<link rel="stylesheet" href="assets/css/responsive.css">
-		<link rel="icon" type="image/png" href="assets/images/1.png">
-</head>
-<body>
+							<h3>The campus experience</h3>
+							<p>Nulla quis lorem ut libero malesuada feugiat. Vivamus suscipit tortor eget felis porttitor volutpat. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Curabitur aliquet quam id dui posuere blandit. Donec sollicitudin molestie lacinia eget consectetur posuere blandit.</p>
 
-<div class="preloader">
-    <div class="lds-ripple">
-        <div class="pl-flip-1 pl-flip-2"></div>
-    </div>
-</div>
-
-<header class="header-area">
-			<!-- Start Top Header -->
-			<div class="top-header">
-				<div class="container">
-					<div class="row align-items-center">
-						<div class="col-lg-6 col-sm-6">
-							<ul class="header-left-content">
-								<li>
-									<a href="tel:+2348170852696">
-										<i class="ri-phone-fill"></i>
-										+234 817 085 2696 
-									</a>
-								</li>
-							</ul>
+							<a href="campus-experience.html" class="default-btn">
+								Find out more
+								<i class="ri-arrow-right-line"></i>
+							</a>
 						</div>
-                        <div class="col-lg-6 col-sm-6">
-							<div class="header-right-content">
-                                <div class="languages-switcher">
-                                    <li>
-                                        <a href="logout.php" class="default-btn">
-                                            Log Out
-                                        </a>
-                                    </li>
-                                </div>
-                                <div class="my-account">
-                                    <a href="profile.php">
-                                        <i class="ri-user-fill"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
+
+						<div class="single-campus-experience">
+							<span>Admission information</span>
+
+							<h3>The campus experience about</h3>
+							<p>Nulla quis lorem ut libero malesuada feugiat. Vivamus suscipit tortor eget felis porttitor volutpat. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Curabitur aliquet quam id dui posuere blandit. Donec sollicitudin molestie lacinia eget consectetur posuere blandit.</p>
+
+							<a href="campus-experience.html" class="default-btn">
+								Find out more
+								<i class="ri-arrow-right-line"></i>
+							</a>
+						</div>
 					</div>
 				</div>
 			</div>
-			<!-- Start Top Header -->
-			
-			<!-- Start Navbar Area --> 
-			<div class="navbar-area">
-                <div class="mobile-responsive-nav">
-                    <div class="container">
-                        <div class="mobile-responsive-menu">
-                            <div class="logo">
-                                <a href="user.php">
-									<img src="assets/images/logo.png" alt="logo">
-								</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+		</section>
+		<!-- End Campus Experience Area -->
 
-                <div class="desktop-nav">
-                    <div class="container">
-                        <nav class="navbar navbar-expand-md navbar-light">
-                            <a class="navbar-brand" href="user.php">
-                                <img src="assets/images/logo.png" alt="logo">
-                            </a>
+		<!-- Start Admissions Area -->
+		<section class="admissions-area ptb-100">
+			<div class="container">
+				<div class="main-default-content">
+					<h3>Admission rules</h3>
+					<p>Vivamus suscipit tortor eget felis porttitor volutpat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ultricies ligula sed magna dictum porta. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Nulla porttitor accumsan tincidunt. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula.</p>
 
-                            <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
-                                <ul class="navbar-nav m-auto">
-									<li class="nav-item">
-										<a href="user.php" class="nav-link active">
-											Home
-										</a>
-									</li>
-                                    <li class="nav-item">
-										<a href="admission.php" class="nav-link active">
-											Admissions
-										</a>
-									</li>
-                                    <li class="nav-item">
-										<a href="apply.php" class="nav-link active">
-											Apply
-										</a>
-									</li>
-                                </ul>
-                                <div class="others-options">
-                                    <ul>
-                                        <li>
-                                            <a href="apply.php" class="default-btn">
-                                                Application form
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>         
-                            </div>
-                        </nav>
-                    </div>
+					<p>Nulla porttitor accumsan tincidunt. Nulla porttitor accumsan tincidunt. Curabitur aliquet quam id dui posuere blandit. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Lorem ipsum dolor sit amet, consectetur adipiscing elit.luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula  Vestibulum ac diam sit amet quam vehicula elementum sed justo, lacinia eget.</p>
+
+					<div class="gap-20"></div>
+
+					<h4>Admission requirements</h4>
+					<p>Vivamus suscipit tortor eget felis porttitor volutpat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ultricies ligula sed magna dictum porta. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Nulla porttitor accumsan tincidunt. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Nulla porttitor accumsan tincidunt. Nulla porttitor accumsan tincidunt. Curabitur aliquet quam id dui posuere blandit. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui</p>
+					
+					<div class="gap-20"></div>
+
+					<h4>Registration procedure</h4>
+					<p>Vivamus suscipit tortor eget felis porttitor volutpat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ultricies ligula sed magna dictum porta. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Nulla porttitor accumsan tincidunt. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Nulla porttitor accumsan tincidunt. Nulla porttitor accumsan tincidunt. Curabitur aliquet quam id dui posuere blandit.</p>
+
+					<div class="gap-20"></div>
+
+					<h3>Financial aid</h3>
+					<p>Vivamus suscipit tortor eget felis porttitor volutpat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ultricies ligula sed magna dictum porta. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Nulla porttitor accumsan tincidunt. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula.</p>
+
+					<p>Nulla porttitor accumsan tincidunt. Nulla porttitor accumsan tincidunt. Curabitur aliquet quam id dui posuere blandit. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Lorem ipsum dolor sit amet, consectetur adipiscing elit.luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula  Vestibulum ac diam sit amet quam vehicula elementum sed justo, lacinia eget.</p>
 				</div>
-            </div>
-			<!-- End Navbar Area -->
-		</header>
+			</div>
+		</section>
+		<!-- End Admissions Area -->
 
-<script data-cfasync="false" src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="assets/js/jquery.min.js"></script> 
-        
-        <script src="assets/js/bootstrap.bundle.min.js"></script>
-		<script src="assets/js/meanmenu.min.js"></script>
-		<script src="assets/js/owl.carousel.min.js"></script>
-        <script src="assets/js/wow.min.js"></script>
-        <script src="assets/js/appear.min.js"></script>
-        <script src="assets/js/odometer.min.js"></script>
-        <script src="assets/js/jarallax.min.js"></script>
-        <script src="assets/js/bootstrap-datepicker.min.js"></script>
-        <script src="assets/js/magnific-popup.min.js"></script>
-		<script src="assets/js/form-validator.min.js"></script>
-		<script src="assets/js/contact-form-script.js"></script>
-		<script src="assets/js/ajaxchimp.min.js"></script>
-		<script src="assets/js/custom.js"></script>
-</body>
-
-
-
-
+        <?php include('includes/footer.php'); ?>
