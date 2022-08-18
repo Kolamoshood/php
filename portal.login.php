@@ -1,3 +1,32 @@
+<?php
+
+include ('config.php');
+
+if($_SERVER["REQUEST_METHOD"] == "POST") {
+
+    
+    $matric_no = mysqli_real_escape_string($connection, $_POST['matric_no']);
+    $password = mysqli_real_escape_string($connection, $_POST['password']);
+	$query = "SELECT id FROM student WHERE matric_no = '$matric_no' AND password = md5('$password')";
+    $result = mysqli_query($connection, $query);
+    $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
+
+	$count = mysqli_num_rows($result);
+
+	// echo $count;
+
+	if ($count == 1){
+		$_SESSION['matric_no'] = $matric_no;
+		header('location: std_portal.php?success=loggedin');
+	} else {
+		header('location: portal.login.php?error=failed');
+	}
+
+}
+
+
+?>
+
 <?php include('includes/header.php'); ?>
 
 <!-- Start User Area -->
@@ -28,7 +57,7 @@
 
 					<div class="col-lg-6">
 						<div class="user-form-content login-area ml-15">
-							<form class="user-form">
+							<form class="user-form" action="" method="POST">
 								<h3>Log in to your account</h3>
 
 								<div class="row">
@@ -74,23 +103,3 @@
 		<!-- End User Area -->
 
 <?php include('includes/footer.php'); ?>
-
-<div class="col-lg-6">
-						<div class="user-form-content register-area mr-15">
-							<div class="col">
-                                <div class="user-form">
-                                    <div class="col-lg-12">
-                                        <h3>Login Instructions</h3>
-                                        <p> If you are a new student, kindly use your <strong>Jamb Registration Number</strong> as <strong>Matric Number</strong>.</p>
-
-                                            Existing student, use <strong>Matric Number<strong> only</p>
-                                    </div>
-                                    <div class="col-lg-12">
-                                        <h3></h3>
-                                        <p></p>
-                                    </div>
-                                </div>
-                                
-                            </div>
-						</div>
-					</div>

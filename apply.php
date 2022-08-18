@@ -11,7 +11,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	$firstname = mysqli_real_escape_string($connection, $_POST['firstname']);
 	$lastname = mysqli_real_escape_string($connection, $_POST['lastname']);
 	$middlename = mysqli_real_escape_string($connection, $_POST['middlename']);
-	$passwording = mysqli_real_escape_string($connection, $_POST['password']);
+	$password = mysqli_real_escape_string($connection, $_POST['password']);
 	$phone_no = mysqli_real_escape_string($connection, $_POST['phone_no']);
 	$email = mysqli_real_escape_string($connection, $_POST['email']);
 	$dob = mysqli_real_escape_string($connection, $_POST['dob']);
@@ -33,7 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if($count == 1) {
         header("location: apply.php?error=applicationexists");
-    } else if ( empty($firstname) || empty($lastname) || empty($middlename) || empty($phone_no) || empty($email) || empty($dob) || empty($image) || empty($matric_no) || empty($cgpa) || empty($faculty) || empty($department)){	
+    } else if ( empty($firstname) || empty($lastname) || empty($middlename) || empty($password) || empty($phone_no) || empty($email) || empty($dob) || empty($image) || empty($matric_no) || empty($cgpa) || empty($faculty) || empty($department)){	
 		header("location: apply.php?error=emptyinput");
 	} else {
 		$std_query = "INSERT INTO student (firstname, lastname, middlename, password, phone_no, email, dob, image, matric_no, cgpa, faculty, department) VALUES ('$firstname', '$lastname', '$middlename', md5('$password'), '$phone_no', '$email', '$dob', '$image', '$matric_no', '$cgpa', '$faculty', '$department')";

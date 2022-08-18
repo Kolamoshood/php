@@ -8,7 +8,10 @@ $row = mysqli_fetch_array($ses_sql);
 $login_session = $row['email'];
 
 
+
 if(!isset($_SESSION['email'])){
     header("location: login.php");
 }
+
+
 ?>
