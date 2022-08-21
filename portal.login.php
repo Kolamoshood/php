@@ -2,6 +2,7 @@
 
 include ('config.php');
 
+
 if($_SERVER["REQUEST_METHOD"] == "POST") {
 
     
@@ -17,7 +18,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 
 	if ($count == 1){
 		$_SESSION['matric_no'] = $matric_no;
-		header('location: std_portal.php?success=loggedin');
+		header('location: student/std_portal.php?success=loggedin');
 	} else {
 		header('location: portal.login.php?error=failed');
 	}
