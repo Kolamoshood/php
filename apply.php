@@ -32,7 +32,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	
 
     if($count == 1) {
-        header("location: apply.php?error=applicationexists");
+        header("location: apply.php?error=userexists");
     } else if ( empty($firstname) || empty($lastname) || empty($middlename) || empty($password) || empty($phone_no) || empty($email) || empty($dob) || empty($image) || empty($matric_no) || empty($cgpa) || empty($faculty) || empty($department)){	
 		header("location: apply.php?error=emptyinput");
 	} else {
@@ -84,17 +84,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     						 echo   '</div>';
 						}
 					
-					} else if(isset($_GET["error"])){
-						if ($_GET["error"] == "applicationexists") {
+					} if (isset($_GET["error"])){
+						if ($_GET["error"] == "userexists") {
 							echo   '<div class="alert alert-danger">';
      						echo      '<strong>Alert! </strong> Your record exists in our database. Keep checking your portal for more info';
     						 echo   '</div>';
 						}
 					
-					} else if(isset($_GET["error"])) {
+					} if(isset($_GET["error"])) {
 						if ($_GET["error"] == "failed"){
 							echo   '<div class="alert alert-danger">';
      						echo      '<strong>Alert! </strong>'. ' ' .$error;
+    						 echo   '</div>';
+						}
+					} if (isset($_GET["error"])){
+						if($_GET["error"] == "failed"){
+							echo   '<div class="alert alert-danger">';
+     						echo      '<strong>Alert! </strong> Something went wrong. Try again later';
     						 echo   '</div>';
 						}
 					} else if (isset($_GET["success"])){

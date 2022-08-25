@@ -14,7 +14,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 
 	$count = mysqli_num_rows($result);
 
-	// echo $count;
+	// echo $count;	
 
 	if ($count == 1){
 		$_SESSION['matric_no'] = $matric_no;
