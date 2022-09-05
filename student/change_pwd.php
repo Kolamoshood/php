@@ -2,23 +2,33 @@
 
 include ("../config.php");
 
-if($_SERVER["REQUEST_METHOD"] == "POST") {
+$message = "";
+$error = "";
 
-    $password = mysqli_real_escape_string($connection, $_POST["password"]);
+if($_SERVER["REQUEST_METHOD"] == "POST") {
+    $password = $row["password"];
+    $password1 = mysqli_real_escape_string($connection, $_POST["password"]);
     $newpwd = mysqli_real_escape_string($connection, $_POST["new-pwd"]);
     $newpwdrpt = mysqli_real_escape_string($connection, $_POST["new-pwd-rpt"]);
-
-    $query = "UPDATE student SET password = '$newpwdrpt' WHERE matric_no = '$matric_no'";
-    $result = mysqli_query($connection, $query);
-    if ($result){
-        header ("Location: std_portal.php");    
+    if ($password == md5($password1)){
+        if ($newpwd == $newpwdrpt){
+            $query = "UPDATE student SET password = md5('$newpwdrpt') WHERE matric_no = '$matric_no'";
+            $result = mysqli_query($connection, $query);
+            if ($result) {
+                $message = "You have succesfully changed your password";
+            } else {
+                $error = "Password reset failed";
+            }
+        } else {
+            $error = "passwords dont match";
+        }
+    } else {
+        $error = "Your correct password is inputed incorrectly!";
     }
 }
 
 
 ?>
-
-
 
 <body>
 
@@ -32,6 +42,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
                                     <h5 class="text-primary">Create new password</h5>
                                     <p class="text-muted">Your new password must be different from previous used password.</p>
                                 </div>
+
+                                <div class="mb-3">
+                                            <?php include ("includes/success_message.php"); ?>
+                                            <?php include ("includes/error_message.php"); ?>
+                                </div>
+
 
                                 <div class="p-2">
                                     <form action="" method="POST">

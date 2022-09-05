@@ -229,7 +229,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 											</span>
 											
 											<span class="forgot-login">
-												<a href="#">Forgot your password?</a>
+												<a href="pwd_reset.php">Forgot your password?</a>
 											</span>
 										</div>
 									</div>
