@@ -4,12 +4,18 @@ include ('session2.php');
 
 $firstname = $row['firstname'];
 $lastname = $row['lastname'];
-$image = $row['image'];
-$phone_no = $row['phone_no'];
-$email = $row['email'];
+$middlename = $row['middlename'];
+$dob = $row['dob'];
 $matric_no = $row['matric_no'];
 $faculty = $row['faculty'];
 $department = $row['department'];
+$level = $row['level'];
+$studentmail = $row['student_mail'];
+$cgpa = $row['cgpa'];
+$image = $row['image'];
+$phone_no = $row['phone_no'];
+$email = $row['email'];
+
 ?>
 
 
@@ -418,7 +424,7 @@ $department = $row['department'];
                     <button type="button" class="btn" id="page-header-user-dropdown" data-bs-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">
                         <span class="d-flex align-items-center">
-                            <img class="rounded-circle header-profile-user" src="assets/images/users/avatar-1.jpg"
+                            <img class="rounded-circle header-profile-user" src="assets/images/users/avatar-8.jpg"
                                 alt="Header Avatar">
                             <span class="text-start ms-xl-2">
                                 <span class="d-none d-xl-inline-block ms-1 fw-medium user-name-text"><?php echo $firstname .' '. $lastname; ?></span>
@@ -1508,7 +1514,7 @@ $department = $row['department'];
                         <div class="row g-4">
                             <div class="col-auto">
                                 <div class="avatar-lg">
-                                    <img src="assets/images/users/avatar-1.jpg" alt="user-img" class="img-thumbnail rounded-circle" />
+                                    <img src="assets/images/users/avatar-8.jpg" alt="user-img" class="img-thumbnail rounded-circle" />
                                 </div>
                             </div>
                             <!--end col-->

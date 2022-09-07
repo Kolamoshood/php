@@ -75,17 +75,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 							</ul>
 						</div>
                         <div class="col-lg-6 col-sm-6">
-							<div class="header-right-content">
-                                <div class="languages-switcher">
-                                        <a href="logout.php" class="btn btn-secondary">
-                                            Log Out
-                                        </a>
-                                </div>
-                                <div class="my-account">
-                                    <a href="profile.php">
-                                        <i class="ri-user-fill"></i>
-                                    </a>
-                                </div>
+							<div class="header-right-content" >
+                                <a href="mail:unco@gmail.com" style="color:white;">
+                                    <i class="ri-mail-fill"></i>
+                                    Unco@gmail.com 
+								</a>
                             </div>
                         </div>
 					</div>
