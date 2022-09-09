@@ -24,12 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	$query = "SELECT * FROM student WHERE email = '$email'";
     $result = mysqli_query($connection, $query);
     $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
-    
-
     $count = mysqli_num_rows($result);
-
-	echo $email;
-	
 
     if($count == 1) {
         header("location: apply.php?error=userexists");
