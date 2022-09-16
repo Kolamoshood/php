@@ -1452,7 +1452,7 @@ $email = $row['email'];
                         <li class="menu-title"><span data-key="t-menu">Menu</span></li>
                         <li class="nav-item">
                             <a class="nav-link menu-link" href="std_portal.php"  aria-expanded="false" aria-controls="sidebarDashboards">
-                                <i class="ri-dashboard-2-line"></i> <span data-key="t-dashboards">Dashboards</span>
+                                <i class="ri-dashboard-2-line"></i> <span data-key="t-dashboards">Home</span>
                             </a>
                         </li> <!-- end Dashboard Menu -->
                         <li class="menu-title"><i class="ri-more-fill"></i> <span data-key="t-pages">Pages</span></li>
@@ -1474,6 +1474,11 @@ $email = $row['email'];
                         <li class="nav-item">
                             <a class="nav-link menu-link" href="results.php"  aria-expanded="false" aria-controls="sidebarDashboards">
                                 <i class="ri-file-search-line"></i> <span data-key="t-dashboards">My Results</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link menu-link" href="print_form.php"  aria-expanded="false" aria-controls="sidebarDashboards">
+                                <i class="ri-file-search-line"></i> <span data-key="t-dashboards">Print Course Form</span>
                             </a>
                         </li>
                         <li class="nav-item">
