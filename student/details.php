@@ -179,8 +179,8 @@
                                                     <!--end col-->
                                                     <div class="col-lg-12">
                                                         <div class="mb-3 pb-2">
-                                                            <label for="exampleFormControlTextarea" class="form-label">Description</label>
-                                                            <textarea class="form-control" id="exampleFormControlTextarea" placeholder="Enter your description" rows="3">Hi I'm <?php echo $firstname .' '. $lastname; ?>,It will be as simple as Occidental; in fact, it will be Occidental. To an English person, it will seem like simplified English, as a skeptical Cambridge friend of mine told me what Occidental is European languages are members of the same family.</textarea>
+                                                            <label for="exampleFormControlTextarea" class="form-label">Summary</label>
+                                                            <textarea class="form-control" id="exampleFormControlTextarea" placeholder="Enter your description" rows="3" disabled> <?php echo $firstname .' '. $lastname; ?> is a <?php echo $level ?> level student of the department of <?php echo $department ?>, faculty of <?php echo $faculty ?>, University of My school with a CGPA of <?php echo $cgpa ?> . He can be contacted on phone through <?php echo $phone_no ?> or on mail through <?php echo $email ?> . </textarea>
                                                         </div>
                                                     </div>
                                                     <!--end col-->

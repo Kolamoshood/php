@@ -9,14 +9,14 @@
  $message = "";
  $error = "";
 if($_SERVER["REQUEST_METHOD"] == "POST") {
-   
+    
 }
 
 ?>
 
 <br class="mt-5">
 <br class="mt-5">
-<div class="row justify-content-center mt-5">
+    <div class="row justify-content-center mt-5">
                         <div class="col-lg-5 mt-5">
                             <div class="text-center mb-4 mt-5">
                                 <h4 class="fw-semibold fs-22">Faculties and Departments</h4>
@@ -197,7 +197,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
                         </div>
                         <!--end col-->
 
-                        
+                        <!--  List of Departments -->
 
                         <div class="col-xxl-4 col-lg-6">
                             <div class="card pricing-box">
@@ -233,6 +233,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
                         <!--end col-->
                     </div>    
                     <!--end row-->
+
+                    <!-- courses -->
                     <?php 
                     
                     $query = "SELECT faculty.faculty AS faculties, student.faculty AS stud_faculty, course.courses AS courses FROM faculty, student, course WHERE faculty.faculty = '$faculty' AND course.faculty_id = faculty.id AND student.matric_no = '$matric_no'";
@@ -249,7 +251,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
                                         <div class="tab-pane active" id="personalDetails" role="tabpanel">
                                             <form action="" method="POST">
                                                 <input type="hidden" name="<?php echo $matric_no ; ?>" value="<?php echo $matric_no ; ?>">
-                                            <?php while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
+                                                    <?php while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
                                                         $course = $row["courses"];
                                                         
                                                         ?>
@@ -266,9 +268,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
                                                     
                                                     </div>
                                                     <div class="col-lg-6">
-                                                            <label class="custom-control-label" style="text-align: left;"> Course Unit </label> 
-                                                        
-                                                         </div>
+                                                        <?php echo "2"; ?>
+                                                    </div>
                                                 </div>
                                                 <!--end row-->
                                             <?php } ?>
@@ -279,13 +280,26 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                    </div>
                         <?php }?>
                         <div class="mb-3">
                                             <?php include ("includes/success_message.php"); ?>
                                             <?php include ("includes/error_message.php"); ?>
-                                </div>
+                        </div>
+    </div>
 
 
+
+    <!-- Registering courses per faculty -->
+
+        <div class="row justify-content-center mt-5">
+            <div class="col-lg-5 mt-5">
+                <?php 
+                if($faculty == "law") {
+                    
+                }
+                ?>
+            </div>
+        </div>
 
 <?php include ("footer.stud.php"); ?>
