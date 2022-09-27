@@ -1,17 +1,6 @@
-<?php 
-
-
-
-?>
-
-
-<?php include ("header.stud.php"); 
- $message = "";
- $error = "";
-if($_SERVER["REQUEST_METHOD"] == "POST") {
-    
-}
-
+<?php include ("header.stud.php");
+$message = "";
+$error = "";
 ?>
 
 <br class="mt-5">
@@ -249,6 +238,20 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
                                 <div class="card-body p-4">
                                     <div class="tab-content">
                                         <div class="tab-pane active" id="personalDetails" role="tabpanel">
+                                            <div class="row">
+                                                <div class="col-lg-6 col-md-6 col-sm-6">
+                                                    <p>Course Unit <span class="ms-3">Course</span> </p>
+                                                </div>
+                                                <div class="col-lg-6 col-md-6 col-sm-6">
+                                                    <p>Select</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-body p-4">
+                                    <div class="tab-content">
+                                        <div class="tab-pane active" id="personalDetails" role="tabpanel">
                                             <form action="" method="POST">
                                                 <input type="hidden" name="<?php echo $matric_no ; ?>" value="<?php echo $matric_no ; ?>">
                                                     <?php while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
@@ -257,18 +260,25 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
                                                         ?>
                                                         
                                                 <div class="row">
-                                                    <div class="col-lg-6">
+                                                    <div class="col-lg-6 col-md-6 col-sm-6">
                                                     
                        
                                                         <div class="mb-3 custom-control custom-checkbox">
-                                                            <input type="checkbox" class="custom-control-checkbox" id="course" name="<?php echo $course ;?>"  value="<?php echo $course ;?>" >
-                                                            <label for="firstnameInput" class="custom-control-label"><?php echo $course ;?></label>
+                                                            <?php 
+                                                            
+                                                            $unitquery = "SELECT * FROM course WHERE courses = '$course'";
+                                                            $unitresult = mysqli_query($connection, $unitquery);
+                                                            $row = mysqli_fetch_assoc($unitresult);
+                                                            $unit = $row['unit'];
+                                                            echo $unit;
+                                                            ?>
+                                                            <label for="firstnameInput" class="custom-control-label"><?php echo "<p class='ms-5'>$course </p>";?></label>
                                                             
                                                         </div>
                                                     
                                                     </div>
-                                                    <div class="col-lg-6">
-                                                        <?php echo "2"; ?>
+                                                    <div class="col-lg-6 col-md-6 col-sm-6">
+                                                       <input type="checkbox" class="custom-control-checkbox" id="course" name="<?php echo $course ;?>"  value="<?php echo $course ;?>" >
                                                     </div>
                                                 </div>
                                                 <!--end row-->
@@ -290,16 +300,5 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
 
-    <!-- Registering courses per faculty -->
-
-        <div class="row justify-content-center mt-5">
-            <div class="col-lg-5 mt-5">
-                <?php 
-                if($faculty == "law") {
-                    
-                }
-                ?>
-            </div>
-        </div>
 
 <?php include ("footer.stud.php"); ?>
