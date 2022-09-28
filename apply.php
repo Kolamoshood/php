@@ -15,11 +15,29 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	$phone_no = mysqli_real_escape_string($connection, $_POST['phone_no']);
 	$email = mysqli_real_escape_string($connection, $_POST['email']);
 	$dob = mysqli_real_escape_string($connection, $_POST['dob']);
-	$image = pathinfo($_FILES["image"]["name"], PATHINFO_EXTENSION);
 	$matric_no = mysqli_real_escape_string($connection, $_POST['matric_no']);
 	$cgpa = mysqli_real_escape_string($connection, $_POST['cgpa']);
 	$faculty = mysqli_real_escape_string($connection, $_POST['faculty']);
 	$department = mysqli_real_escape_string($connection, $_POST['department']);
+
+	if(isset($_FILES['image']['name'])){
+		$image_name = $_FILES['image']['name'];
+		$extension = end(explode('.', $image_name));
+		$newimage_name = "user-".rand(000, 999). '.' .$extension;
+		$source_path = $_FILES['image']['tmp_name'];
+		$destination_path = "uploads/" .$newimage_name;
+		$upload = move_uploaded_file($source_path, $destination_path);
+		if (!$upload){
+			$error = "could not upload image file";
+			die();
+		}
+	} else {
+		$newimage_name = "tola";
+	}
+	// $image = pathinfo($_FILES["image"]["name"], PATHINFO_EXTENSION);
+
+
+	
 
 	$query = "SELECT * FROM student WHERE email = '$email'";
     $result = mysqli_query($connection, $query);
@@ -28,10 +46,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if($count == 1) {
         header("location: apply.php?error=userexists");
-    } else if ( empty($firstname) || empty($lastname) || empty($middlename) || empty($password) || empty($phone_no) || empty($email) || empty($dob) || empty($image) || empty($matric_no) || empty($cgpa) || empty($faculty) || empty($department)){	
+    } else if ( empty($firstname) || empty($lastname) || empty($middlename) || empty($password) || empty($phone_no) || empty($email) || empty($dob) || empty($newimage_name) || empty($matric_no) || empty($cgpa) || empty($faculty) || empty($department)){	
 		header("location: apply.php?error=emptyinput");
 	} else {
-		$std_query = "INSERT INTO student (firstname, lastname, middlename, password, phone_no, email, dob, image, matric_no, cgpa, faculty, department) VALUES ('$firstname', '$lastname', '$middlename', md5('$password'), '$phone_no', '$email', '$dob', '$image', '$matric_no', '$cgpa', '$faculty', '$department')";
+		$std_query = "INSERT INTO student (firstname, lastname, middlename, password, phone_no, email, dob, image, matric_no, cgpa, faculty, department) VALUES ('$firstname', '$lastname', '$middlename', md5('$password'), '$phone_no', '$email', '$dob', '$newimage_name', '$matric_no', '$cgpa', '$faculty', '$department')";
 		if(mysqli_query($connection, $std_query)){
 			header("location: apply.php?success=succeed");
 

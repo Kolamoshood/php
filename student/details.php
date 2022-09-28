@@ -7,7 +7,7 @@
                                 <div class="card-body p-4">
                                     <div class="text-center">
                                         <div class="profile-user position-relative d-inline-block mx-auto  mb-4">
-                                            <img src="assets/images/users/avatar-8.jpg" class="rounded-circle avatar-xl img-thumbnail user-profile-image" alt="user-profile-image">
+                                            <img src="../uploads/<?php echo $image; ?>" class="rounded-circle avatar-xl img-thumbnail user-profile-image">
                                             <div class="avatar-xs p-0 rounded-circle profile-photo-edit">
                                                 <input id="profile-img-file-input" type="file" class="profile-img-file-input">
                                                 <label for="profile-img-file-input" class="profile-photo-edit avatar-xs">
@@ -310,7 +310,7 @@
                                                         </div>
                                                         <div class="col-xxl-5 ms-auto">
                                                             <div class="card">
-                                                                <img class="card-img-top img-fluid" src="assets/images/users/avatar-9.jpg" alt="Card image cap">
+                                                                <img class="card-img-top img-fluid" src="../uploads/user-265.jpg"  alt="Card image cap">
                                                                 <div class="card-body">
                                                                     <p class="card-text">Dr Samuel got his LLB from the University of ASUU, Nigeria, his LLM from the University of Sapa and his PHD from Shewo University, United Kingdom. He has written over 50 articles in both national and global journals and is specially recognised in Sapataical.</p>
                                                                 </div>

@@ -421,8 +421,7 @@ $email = $row['email'];
                     <button type="button" class="btn" id="page-header-user-dropdown" data-bs-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">
                         <span class="d-flex align-items-center">
-                            <img class="rounded-circle header-profile-user" src="assets/images/users/avatar-8.jpg"
-                                alt="Header Avatar">
+                            <img class="rounded-circle header-profile-user" src="../uploads/<?php echo $image; ?>" >
                             <span class="text-start ms-xl-2">
                                 <span class="d-none d-xl-inline-block ms-1 fw-medium user-name-text"><?php echo $firstname .' '. $lastname; ?></span>
                                 <span class="d-none d-xl-block ms-1 fs-12 text-muted user-name-sub-text">Student</span>
@@ -565,7 +564,7 @@ $email = $row['email'];
                         <div class="row g-4">
                             <div class="col-auto">
                                 <div class="avatar-lg">
-                                    <img src="assets/images/users/avatar-8.jpg" alt="user-img" class="img-thumbnail rounded-circle" />
+                                    <img src="../uploads/<?php echo $image; ?>" class="img-thumbnail rounded-circle" />
                                 </div>
                             </div>
                             <!--end col-->
