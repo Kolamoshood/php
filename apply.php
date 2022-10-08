@@ -32,7 +32,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 			die();
 		}
 	} else {
-		$newimage_name = "tola";
+		$newimage_name = "";
 	}
 	// $image = pathinfo($_FILES["image"]["name"], PATHINFO_EXTENSION);
 
@@ -217,17 +217,58 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 							<div class="col-lg-6 col-md-6">
 								<div class="form-group">
-									<label>Faculty</label>
-									<input class="form-control" type="text" name="faculty" required >	
+									<label for="faculty">Faculty</label>
+									   <select class="form-control" id="faculty" name="faculty" required >
+                                        <option value="Medical Sciences">Faculty of Medical Sciences</option>
+                                        <option value="Art">Faculty of Arts</option>
+                                        <option value="Engineering">Faculty of Engineering</option>
+                                        <option value="Social Sciences">Faculty of Social Sciences</option>
+                                        <option value="Law">Faculty of Law</option>
+                                        <option value="Sciences">Faculty of Sciences</option>
+                                      </select>
 								</div>
 							</div>
 
 							<div class="col-lg-6 col-md-6">
 								<div class="form-group">
 									<label>Department</label>
-									<input class="form-control" type="text" name="department" required >	
+									<select class="form-control" id="department" name="department" required >
+										<?php 
+										
+										
+
+										?>
+                                        <option value="common-law">Common Law</option>
+                                        <option value="Islamic-law">Islamic Law</option>
+                                        <option value="private-law">Private law</option>
+                                        <option value="public-law">Public Law</option>
+                                        <option value="business-law">Business Law</option>
+                                        <option value="Jurisprudence">Jurisprudence</option>
+                                        <option value="Linguistics">Linguistics</option>
+                                        <option value="Religion">Religion</option>
+                                        <option value="International-relations">International Relations</option>
+                                        <option value="Mechanical-engineering">Mechanical Engineering</option>
+                                        <option value="Electrical-engineering">Electrical Engineering</option>
+                                        <option value="Network-engineering">Network Engineering</option>
+                                        <option value="Physics">Physics</option>
+                                        <option value="Bio-chemistry">Bio Chemistry</option>
+                                        <option value="Applied-sciences">Applied Sciences</option>
+                                        <option value="Biology">Biology</option>
+                                        <option value="Zoology">Zoology</option>
+                                        <option value="Chemistry">Chemistry</option>
+                                        <option value="Political-science">Political Science</option>
+                                        <option value="Sociology">Sociology</option>
+                                        <option value="Accounting">Accounting</option>
+                                        <option value="Marketing">Marketing</option>
+                                        <option value="Business-admin">Business Admin</option>
+                                        <option value="Mass-communication">Mass Communication</option>
+                                        <option value="Medicine">Medicine</option>
+                                        <option value="Pharmacy">Pharmacy</option>
+                                        <option value="Nursing">Nursing</option>
+                                     </select>
 								</div>
 							</div>
+
 
 							<div class="col-lg-12 col-md-12">
 								<div class="form-group checkboxs">

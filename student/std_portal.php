@@ -64,6 +64,23 @@
                                                         </div>
                                                     </div><!-- end card body -->
                                                 </div><!-- end card -->
+                                                <div class="card">
+                                                    <div class="card-body">
+                                                        <?php 
+                                                        
+                                                            if($image !== ""){
+                                                                ?>
+                                                                <img src="../uploads/<?php echo $image; ?>">
+                                                                <?php
+                                                               
+                                                            } else {
+                                                                echo "<div class='alert'>Image not availale</div>";
+                                                            }
+
+                                                        ?>
+                                                        
+                                                    </div><!-- end card body -->
+                                                </div><!-- end card -->
 
                                                 
                                                 
@@ -117,13 +134,13 @@
                                                                 <p class="text-dark fs-15 mt-3">If you have any issue with your academics or student life, you can always contact or email your Level adviser.He/she will always be available to help!</p>
                                                                 <div class="hstack flex-wrap gap-2">
                                                                     <button type="button" class="btn btn-primary btn-label rounded-pill"><i class="ri-mail-line label-icon align-middle rounded-pill fs-16 me-2"></i> samuela@gmail.com</button>
-                                                                    <button type="button" class="btn btn-info btn-label rounded-pill"><i class="ri-twitter-line label-icon align-middle rounded-pill fs-16 me-2"></i> @drsamuelajewole</button>
+                                                                    <button type="button" class="btn btn-info btn-label rounded-pill"><i class="ri-twitter-line label-icon align-middle rounded-pill fs-16 me-2"></i> @drsamuelajewole</button>   
                                                                 </div>
                                                             </div>
                                                         </div>
                                                         <div class="col-xxl-5 ms-auto">
                                                             <div class="card">
-                                                                <img class="card-img-top img-fluid" src="../uploads/user-265.jpg" alt="Card image cap">
+                                                            <img class="card-img-top img-fluid" src="assets/images/LA.jpg"  alt="Image">
                                                                 <div class="card-body">
                                                                     <p class="card-text">Dr Samuel got his LLB from the University of ASUU, Nigeria, his LLM from the University of Sapa and his PHD from Shewo University, United Kingdom. He has written over 50 articles in both national and global journals and is specially recognised in Sapataical.</p>
                                                                 </div>

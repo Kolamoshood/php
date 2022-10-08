@@ -10,7 +10,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     $password1 = mysqli_real_escape_string($connection, $_POST["password"]);
     $newpwd = mysqli_real_escape_string($connection, $_POST["new-pwd"]);
     $newpwdrpt = mysqli_real_escape_string($connection, $_POST["new-pwd-rpt"]);
-    if ($password == md5($password1)){
+    if (empty($password) || empty($password1) || empty($newpwd) || empty($newpwdrpt)){
+        $error = "You must fill all fields!";
+    } 
+    else if ($password == md5($password1)){
         if ($newpwd == $newpwdrpt){
             $query = "UPDATE student SET password = md5('$newpwdrpt') WHERE matric_no = '$matric_no'";
             $result = mysqli_query($connection, $query);
@@ -23,7 +26,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
             $error = "passwords dont match";
         }
     } else {
-        $error = "Your correct password is inputed incorrectly!";
+        $error = "Your password is inputed incorrectly!";
     }
 }
 

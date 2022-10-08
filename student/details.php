@@ -310,7 +310,7 @@
                                                         </div>
                                                         <div class="col-xxl-5 ms-auto">
                                                             <div class="card">
-                                                                <img class="card-img-top img-fluid" src="../uploads/user-265.jpg"  alt="Card image cap">
+                                                                <img class="card-img-top img-fluid" src="assets/images/LA.jpg"  alt="Image">
                                                                 <div class="card-body">
                                                                     <p class="card-text">Dr Samuel got his LLB from the University of ASUU, Nigeria, his LLM from the University of Sapa and his PHD from Shewo University, United Kingdom. He has written over 50 articles in both national and global journals and is specially recognised in Sapataical.</p>
                                                                 </div>
