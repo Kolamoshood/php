@@ -10,4 +10,5 @@ $connection = new mysqli($servername, $databaseUser, $databasePassword, $databas
 if (!$connection){
     echo "connection failed";
 };
+
 ?>

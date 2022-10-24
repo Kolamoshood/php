@@ -18,6 +18,30 @@
 		<link rel="stylesheet" href="assets/css/style.css">
 		<link rel="stylesheet" href="assets/css/responsive.css">
 		<link rel="icon" type="image/png" href="assets/images/1.png">
+
+		<script src="jquery-3.6.1.js"></script>
+
+        <!-- ajax script for my apply.php(217) and faculty_department.php that loads the departments in a faculty in the form once selected without refreshng the page -->
+		<script type="text/javascript"> 
+    
+            $(document).ready(function()
+            {
+                $("#faculty").change(function(){
+                    var faculty = $(this).val();
+                    $.ajax({
+                        url:"faculty_department.php", 
+                        method: "POST",
+                        data : {faculty:faculty},
+                        success:function(data){
+                            $("#department").html(data);
+                        }
+                    });
+                });
+
+            });
+    
+    </script>
+
 </head>
 <body>
 

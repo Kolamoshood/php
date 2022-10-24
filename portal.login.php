@@ -20,7 +20,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 	} else{ 
 		if ($count == 1){
 			$_SESSION['matric_no'] = $matric_no;
-			header('location: student/std_portal.php?success=loggedin');
+			header('location: student/index.php?success=loggedin');
 		} else {
 			header('location: portal.login.php?error=failed');
 		}

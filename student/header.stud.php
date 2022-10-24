@@ -47,6 +47,8 @@ $email = $row['email'];
     <!-- custom Css-->
     <link href="assets/css/custom.min.css" rel="stylesheet" type="text/css" />
     <link rel="icon" type="image/png" href="assets/images/1.png">
+
+    
 </head>
 
 <body>
@@ -61,7 +63,7 @@ $email = $row['email'];
             <div class="d-flex">
                 <!-- LOGO -->
                 <div class="navbar-brand-box horizontal-logo">
-                    <a href="index.html" class="logo logo-dark">
+                    <a href="index.php" class="logo logo-dark">
                         <span class="logo-sm">
                             <img src="assets/images/mk-off-bg.png" alt="" height="22">
                         </span>
@@ -70,7 +72,7 @@ $email = $row['email'];
                         </span>
                     </a>
 
-                    <a href="index.html" class="logo logo-light">
+                    <a href="index.php" class="logo logo-light">
                         <span class="logo-sm">
                             <img src="assets/images/mk-white-off-bg.png" alt="" height="22">
                         </span>
@@ -445,10 +447,10 @@ $email = $row['email'];
                         <a class="dropdown-item" href="details.php"><i
                                 class="mdi mdi-account-circle text-muted fs-16 align-middle me-1"></i> <span
                                 class="align-middle">Profile</span></a>
-                        <a class="dropdown-item" href="apps-tasks-kanban.html"><i
+                        <a class="dropdown-item" href="#"><i
                                 class="mdi mdi-calendar-check-outline text-muted fs-16 align-middle me-1"></i> <span
                                 class="align-middle">Taskboard</span></a>
-                        <a class="dropdown-item" href="pages-faqs.html"><i
+                        <a class="dropdown-item" href="#"><i
                                 class="mdi mdi-lifebuoy text-muted fs-16 align-middle me-1"></i> <span
                                 class="align-middle">Help</span></a>
                         <div class="dropdown-divider"></div>
@@ -456,7 +458,7 @@ $email = $row['email'];
                                 class="badge bg-soft-success text-success mt-1 float-end">New</span><i
                                 class="mdi mdi-cog-outline text-muted fs-16 align-middle me-1"></i> <span
                                 class="align-middle">Password Settings</span></a>
-                        <a class="dropdown-item" href="auth-lockscreen-basic.html"><i
+                        <a class="dropdown-item" href="#"><i
                                 class="mdi mdi-lock text-muted fs-16 align-middle me-1"></i> <span
                                 class="align-middle">Lock screen</span></a>
                         <a class="dropdown-item" href="stud_logout.php"><i
@@ -474,7 +476,7 @@ $email = $row['email'];
         <div class="app-menu navbar-menu">
         <div class="navbar-brand-box">
                 <!-- Dark Logo-->
-                <a href="index.html" class="logo logo-dark">
+                <a href="index.php" class="logo logo-dark">
                     <span class="logo-sm">
                         <img src="assets/images/mk-off-bg.png" alt="" height="22">
                     </span>
@@ -483,7 +485,7 @@ $email = $row['email'];
                     </span>
                 </a>
                 <!-- Light Logo-->
-                <a href="index.html" class="logo logo-light">
+                <a href="index.php" class="logo logo-light">
                     <span class="logo-sm">
                         <img src="assets/images/mk-white-off-bg.png" alt="" height="22">
                     </span>
@@ -504,7 +506,7 @@ $email = $row['email'];
                     <ul class="navbar-nav" id="navbar-nav">
                         <li class="menu-title"><span data-key="t-menu">Menu</span></li>
                         <li class="nav-item">
-                            <a class="nav-link menu-link" href="std_portal.php"  aria-expanded="false" aria-controls="sidebarDashboards">
+                            <a class="nav-link menu-link" href="index.php"  aria-expanded="false" aria-controls="sidebarDashboards">
                                 <i class="ri-dashboard-2-line"></i> <span data-key="t-dashboards">Home</span>
                             </a>
                         </li> <!-- end Dashboard Menu -->

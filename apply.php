@@ -32,7 +32,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 			die();
 		}
 	} else {
-		$newimage_name = "";
+		$newimage_name = "tola";
 	}
 	// $image = pathinfo($_FILES["image"]["name"], PATHINFO_EXTENSION);
 
@@ -219,12 +219,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 								<div class="form-group">
 									<label for="faculty">Faculty</label>
 									   <select class="form-control" id="faculty" name="faculty" required >
-                                        <option value="Medical Sciences">Faculty of Medical Sciences</option>
-                                        <option value="Art">Faculty of Arts</option>
-                                        <option value="Engineering">Faculty of Engineering</option>
-                                        <option value="Social Sciences">Faculty of Social Sciences</option>
-                                        <option value="Law">Faculty of Law</option>
-                                        <option value="Sciences">Faculty of Sciences</option>
+										<option selected="selected">Select Faculty</option>
+										<?php 
+										
+											$sql= "SELECT * FROM faculty ORDER by faculty ASC";
+											$res = mysqli_query($connection, $sql);
+											while($row = mysqli_fetch_array($res))
+											{
+												$id = $row['id'];
+												$faculty = $row['faculty'];
+												?>
+
+												<option value="<?php echo $faculty?>"> <?php echo $faculty ?> </options>
+
+												<?php
+											}
+
+										?>
                                       </select>
 								</div>
 							</div>
@@ -233,38 +244,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 								<div class="form-group">
 									<label>Department</label>
 									<select class="form-control" id="department" name="department" required >
-										<?php 
-										
-										
-
-										?>
-                                        <option value="common-law">Common Law</option>
-                                        <option value="Islamic-law">Islamic Law</option>
-                                        <option value="private-law">Private law</option>
-                                        <option value="public-law">Public Law</option>
-                                        <option value="business-law">Business Law</option>
-                                        <option value="Jurisprudence">Jurisprudence</option>
-                                        <option value="Linguistics">Linguistics</option>
-                                        <option value="Religion">Religion</option>
-                                        <option value="International-relations">International Relations</option>
-                                        <option value="Mechanical-engineering">Mechanical Engineering</option>
-                                        <option value="Electrical-engineering">Electrical Engineering</option>
-                                        <option value="Network-engineering">Network Engineering</option>
-                                        <option value="Physics">Physics</option>
-                                        <option value="Bio-chemistry">Bio Chemistry</option>
-                                        <option value="Applied-sciences">Applied Sciences</option>
-                                        <option value="Biology">Biology</option>
-                                        <option value="Zoology">Zoology</option>
-                                        <option value="Chemistry">Chemistry</option>
-                                        <option value="Political-science">Political Science</option>
-                                        <option value="Sociology">Sociology</option>
-                                        <option value="Accounting">Accounting</option>
-                                        <option value="Marketing">Marketing</option>
-                                        <option value="Business-admin">Business Admin</option>
-                                        <option value="Mass-communication">Mass Communication</option>
-                                        <option value="Medicine">Medicine</option>
-                                        <option value="Pharmacy">Pharmacy</option>
-                                        <option value="Nursing">Nursing</option>
+										<option selected="selected">Select Department</option>
                                      </select>
 								</div>
 							</div>
@@ -274,7 +254,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 								<div class="form-group checkboxs">
 									<input type="checkbox" id="chb2">
 									<p>
-										By submitting this form, you agree to the <a href="terms-conditions.html">Terms &amp; Conditions</a> And <a href="privacy-policy.html">Privacy Policy</a> notice.
+										By submitting this form, you agree to the <a href="#">Terms &amp; Conditions</a> And <a href="#">Privacy Policy</a> notice.
 									</p>
 								</div>
 							</div>
